@@ -13,7 +13,10 @@ class strKeyDict0(dict):
     def __contains__(self, key):
         return key in self.keys() or str(key) in self.keys()
 
+
 import collections
+
+
 class strKeyDict(collections.UserDict):
     def __missing__(self, key):
         if isinstance(key, str):
@@ -25,7 +28,8 @@ class strKeyDict(collections.UserDict):
 
     def __setitem__(self, key, item):
         self.data[str(key)] = item
-        
+
+
 if __name__ == '__main__':
     d = strKeyDict([('2', 'two'), ('4', 'four')])
     print(d[2])

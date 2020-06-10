@@ -1,5 +1,6 @@
 import math
 
+
 class Vector:
     def __init__(self, x ,y):
         self.x = x
@@ -16,12 +17,11 @@ class Vector:
 
     def __bool__(self):
         return bool(self.x) and bool(self.y)
-
+    
+    # repr 用于终端调试，不定义的话输出不友好；__str__ 用于转化为字符串
     def __repr__(self):
         return 'Vector(%s, %s)' % (self.x ,self.y)
 
-
-# repr 用于终端调试，不定义的话输出不友好；__str__ 用于转化为字符串
 
 if __name__ == '__main__':
     v = Vector(3, 4)
