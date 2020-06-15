@@ -23,5 +23,5 @@ if __name__ == '__main__':
     tags = {
         'name': 'p',
     }
-    foo(name='1111')
-    print('wewe')
+    foo(name='kaiser')
+    print('kaiser')
