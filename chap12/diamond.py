@@ -32,10 +32,15 @@ class D(B, C):
         return super().__new__(cls)
 
     def __init__(self):
-        self.ss = 10
+        self.__dict__.update({'ss': 10})
+        # self.ss = 20
         print('init d')
         self.attr1 = 10
         super().__init__()
+
+    @property
+    def ss(self):
+        return 1
 
     def ping(self):
         super().ping()
@@ -48,12 +53,12 @@ class D(B, C):
         super().pong()
         C.pong(self)
 
-    def ss():
-        return 1
 
 if __name__ == '__main__':
     d = D()
-    print(isinstance(d, B))
-    print(isinstance(d, C))
+    # print(isinstance(d, B))
+    # print(isinstance(d, C))
     print(d.ss)
+    print(dir(d))
+    print(d.__dict__)
 

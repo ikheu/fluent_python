@@ -11,7 +11,7 @@ def load():
         warnings.warn(msg)
         with urlopen(URL) as remote, open(JSON, 'wb') as local:
             local.write(remote.read())
-    with open(JSON) as fp:
+    with open(JSON, encoding='utf8') as fp:
         return json.load(fp)
 
 if __name__ == '__main__':

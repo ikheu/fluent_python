@@ -27,7 +27,7 @@ import inspect  # <1>
 
 import osconfeed
 
-DB_NAME = 'data/schedule2_db'  # <2>
+DB_NAME = 'schedule2_db'  # <2>
 CONFERENCE = 'conference.115'
 
 
@@ -124,3 +124,25 @@ def load_db(db):
             record['serial'] = key
             db[key] = factory(**record)  # <8>
 # END SCHEDULE2_LOAD
+
+
+if __name__ == '__main__':
+    import shelve
+    db = shelve.open(DB_NAME)
+    if CONFERENCE not in db: 
+        load_db(db)
+    DbRecord.set_db(db)  # <1>
+    event = DbRecord.fetch('event.33950')  # <2>
+    print(event)
+    print(event.time_start)
+    print(event.speakers)
+#     event.venue
+#     <DbRecord serial='venue.1449'>
+#     >>> event.venue.name  # <5>
+#     'Portland 251'
+#     >>> for spkr in event.speakers:  # <6>
+#     ...     print('{0.serial}: {0.name}'.format(spkr))
+#     speaker.3471: Anna Martelli Ravenscroft
+#     speaker.5199: Alex Martelli
+# # END SCHEDULE2_DEMO
+#     >>> db.close()
