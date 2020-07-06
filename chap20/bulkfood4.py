@@ -13,7 +13,10 @@ class Quantity:
             raise ValueError('val must be > 0')
 
     def __get__(self, instance, owner):
-        return getattr(instance, self.name)
+        if isinstance is None:
+            return self
+        else:
+            return getattr(instance, self.name)
 
 
 class LineItem:
