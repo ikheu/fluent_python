@@ -14,10 +14,10 @@ class LineItem(model.Entity):
     def subtotal(self):
         return self.price * self.weight
 
-if __name__ == '__main__':
-    item = LineItem('apple', 1.4, 2)
-    print(item.subtotal())
-    print(LineItem.price.storage_name)
-    print(item.__class__)
-    print(LineItem.__class__)
-    print(LineItem.__mro__)
+# if __name__ == '__main__':
+#     item = LineItem('apple', 1.4, 2)
+    # print(item.subtotal())
+    # print(LineItem.price.storage_name)
+    # print(item.__class__)
+    # print(LineItem.__class__)
+    # print(LineItem.__mro__)
