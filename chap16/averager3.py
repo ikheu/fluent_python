@@ -8,6 +8,7 @@ def averager():
     count = 0
     average = None
     while True:
+        print('----')
         term = yield
         if term is None:
             break
@@ -20,6 +21,7 @@ def averager():
 
 # the delegating generator
 def grouper(results, key):
+    print('sssssssssssss')
     while True:
         print('ssssss')
         results[key] = yield from averager()
@@ -31,12 +33,14 @@ def grouper(results, key):
 def main(data):
     results = {}
     for key, values in data.items():
+        print(type(grouper))
         group = grouper(results, key)
-        next(group)
-        for value in values:
-            group.send(value)
-        group.send(None) # important!
-    print(results)
+        print(type(group))
+        # next(group)
+    #     for value in values:
+    #         group.send(value)
+    #     group.send(None) # important!
+    # print(results)
 
 
 data = {
@@ -49,6 +53,21 @@ data = {
 #     'boys;m':
 #         [1.38, 1.5, 1.32, 1.25, 1.37, 1.48, 1.25, 1.49, 1.46],
 }
+
+
+def foo():
+    print('---')
+    yield 1
+
+def foo1():
+    print('---1')
+    return 1
+
+print(dir(foo))
+print(dir(foo1))
+
+print(foo())
+print(foo1())
 
 if __name__ == '__main__':
     main(data)
