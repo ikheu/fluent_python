@@ -1,0 +1,6 @@
+The O'Reilly logo is a registered trademark of O'Reilly Media, Inc. Fluent Pyhton, the cover image, and related trade dress are trademark of O'Reilly Media, Inc
+think about it.
+
+
+
+while the publisher and author have used good faith efforts to ensure that the information and instructions cotained in this work are accurate, 
